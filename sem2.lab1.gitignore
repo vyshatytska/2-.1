@@ -1,0 +1,45 @@
+using System;
+
+namespace лаб1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+			double x; // вхідний параметр
+			double y; // результат обчислення виразу
+			double A = 0; // проміжний результат - функціонально стала частина виразу
+			double B = 0; // проміжний результат - функціонально змінна частина виразу
+
+			Console.WriteLine("x = "); x = Convert.ToInt32(Console.ReadLine());
+
+			A = 2 * Math.Abs(x - 5);
+
+			// спосіб 1: розгалуження в скороченій формі
+			if (x < -1)
+				B = ((Math.Sin(x)*Math.Sin(x)) / (1 + Math.Abs(Math.Cos(x))));
+			if (-1 <= x && x <= 1)
+				B = Math.Cos(1 / Math.Abs(x + 2)) * Math.Cos(1 / Math.Abs(x + 2));
+			if (x > 1)
+				B = Math.Log(Math.Abs(x + 2));
+
+			y = A - B;
+
+			Console.WriteLine("\n");
+			Console.WriteLine("1) y = " + y + "\n");   //???
+
+			// спосіб 2
+			if (x < -1)
+				B = ((Math.Sin(x) * Math.Sin(x)) / (1 + Math.Abs(Math.Cos(x))));
+			else
+				if (x > 1)
+				B = Math.Log(Math.Abs(x + 2));
+			else
+				B = Math.Cos(1 / Math.Abs(x + 2)) * Math.Cos(1 / Math.Abs(x + 2));
+
+			y = A - B;
+
+			Console.WriteLine("2) y = " + y + "\n"); //???
+		}
+	}
+}
